@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SaeedPay76.Data.DatabaseContext;
+using SaeedPay76.Data.Repositories.Repo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +12,24 @@ namespace SaeedPay76.Data.Infrastructure
 {
     public class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext : DbContext, new()
     {
-        private readonly SaeedPayDbContext _dbContext;
+        private readonly DbContext _dbContext;
 
-        public UnitOfWork(SaeedPayDbContext dbContext)
+        public UnitOfWork()
         {
-            _dbContext = dbContext;
+            _dbContext = new TContext();
+        }
+        public UserRepository userRepository;
+
+        UserRepository IUnitOfWork<TContext>.userRepository
+        {
+            get
+            {
+                if (userRepository == null)
+                {
+                    userRepository = new UserRepository(_dbContext);
+                }
+                return userRepository;
+            }
         }
 
         public void SaveChange()
@@ -44,7 +58,9 @@ namespace SaeedPay76.Data.Infrastructure
         }
 
         private bool disposed = false;
-        protected virtual  void Dispose(bool disposing)
+
+
+        protected virtual void Dispose(bool disposing)
         {
             if (!disposed)
             {
@@ -61,7 +77,7 @@ namespace SaeedPay76.Data.Infrastructure
             Dispose(true);
             GC.SuppressFinalize(this);
         }
-         ~UnitOfWork()
+        ~UnitOfWork()
         {
             Dispose(false);
         }

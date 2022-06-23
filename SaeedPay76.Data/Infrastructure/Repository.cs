@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace SaeedPay76.Data.Infrastructure
 {
-    public class Repository<TEntity> : IRepository<TEntity>, IDisposable where TEntity : class
+    public abstract class Repository<TEntity> : IRepository<TEntity>, IDisposable where TEntity : class
     {
-        private readonly SaeedPayDbContext _dbContext;
+        private readonly DbContext _dbContext;
         private readonly DbSet<TEntity> _dbSet;
-        public Repository(SaeedPayDbContext dbContext)
+        public Repository(DbContext dbContext)
         {
             _dbContext = dbContext;
             _dbSet = _dbContext.Set<TEntity>();
@@ -44,15 +44,15 @@ namespace SaeedPay76.Data.Infrastructure
         }
 
 
-        public Task<IEnumerable<TEntity>> GetAllAsync()
+        public async Task<IEnumerable<TEntity>> GetAllAsync()
         {
-            return _dbSet.AsEnumerable();
+            return await _dbSet.ToListAsync();
         }
 
         public async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> expression)
         {
             return await _dbSet.Where(expression).FirstOrDefaultAsync();
-                
+
         }
 
         public async Task<TEntity> GetByIdAsync(object id)
