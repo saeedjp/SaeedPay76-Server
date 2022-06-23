@@ -2,14 +2,14 @@
 
 namespace SaeedPay76.Data.Models
 {
-    public class BanckCard :BaseEntity<string>
+    public class BankCard :BaseEntity<string>
     {
-        public BanckCard()
+        public BankCard()
         {
             Id = Guid.NewGuid().ToString();
             CreatedAt = System.DateTime.Now;
         }
-        public string BanckName { get; set; }
+        public string BankName { get; set; }
         public string Shaba { get; set; }
         public string CardNumber { get; set; }
         public string ExpireDateMonth { get; set; }

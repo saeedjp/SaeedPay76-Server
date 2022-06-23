@@ -24,6 +24,6 @@ namespace SaeedPay76.Data.Models
         public bool Status { get; set; }
 
         public ICollection<Photo> Photos { get; set; }
-        public ICollection<BanckCard> BanckCards { get; set; }
+        public ICollection<BankCard> BankCards { get; set; }
     }
 }
