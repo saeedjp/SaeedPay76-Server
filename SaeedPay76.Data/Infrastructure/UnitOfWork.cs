@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SaeedPay76.Data.DatabaseContext;
+using SaeedPay76.Data.Repositories.Interface;
 using SaeedPay76.Data.Repositories.Repo;
 using System;
 using System.Collections.Generic;
@@ -10,17 +11,17 @@ using System.Threading.Tasks;
 
 namespace SaeedPay76.Data.Infrastructure
 {
-    public class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext : DbContext, new()
+    public class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext : DbContext ,new ()
     {
         private readonly DbContext _dbContext;
 
         public UnitOfWork()
         {
-            _dbContext = new TContext();
+            _dbContext =new TContext();
         }
-        public UserRepository userRepository;
+        public IUserRepository userRepository;
 
-        UserRepository IUnitOfWork<TContext>.userRepository
+        IUserRepository IUnitOfWork<TContext>.userRepository
         {
             get
             {

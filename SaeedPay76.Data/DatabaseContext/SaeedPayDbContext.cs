@@ -10,6 +10,10 @@ namespace SaeedPay76.Data.DatabaseContext
 {
     public class SaeedPayDbContext : DbContext
     {
+        public SaeedPayDbContext()
+        {
+
+        }
         public SaeedPayDbContext( DbContextOptions options) : base(options)
         {
         }
