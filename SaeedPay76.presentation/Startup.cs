@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SaeedPay76.Data.DatabaseContext;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +26,11 @@ namespace SaeedPay76.presentation
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+
+            var connectionString = Configuration.GetConnectionString("SaeedPay");
+            services.AddDbContextPool<SaeedPayDbContext>(options => options
+                .UseSqlServer(connectionString));
+                
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
