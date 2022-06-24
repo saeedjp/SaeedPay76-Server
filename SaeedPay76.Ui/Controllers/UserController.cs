@@ -16,10 +16,8 @@ namespace SaeedPay76.presentation.Controllers
     public class UserController : ControllerBase
     {
         private readonly IAuthService _authService;
-        private readonly IUnitOfWork _db;
-        public UserController(IAuthService authService, IUnitOfWork db)
+        public UserController(IAuthService authService)
         {
-            _db = db;
             _authService = authService;
         }
 
