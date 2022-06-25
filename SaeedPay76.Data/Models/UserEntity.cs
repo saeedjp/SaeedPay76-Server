@@ -10,8 +10,8 @@ namespace SaeedPay76.Data.Models
             Id = Guid.NewGuid().ToString();
             CreatedAt = DateTime.Now;
         }
-        public int Name { get; set; }
-        public int UserName { get; set; }
+        public string Name { get; set; }
+        public string UserName { get; set; }
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
         public string Gender { get; set; }

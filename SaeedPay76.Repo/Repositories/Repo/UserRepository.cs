@@ -20,11 +20,13 @@ namespace SaeedPay76.Data.Repositories.Repo
             _db = (_db ?? (SaeedPayDbContext)_db);
         }
 
-        
-
-        public Task<UserEntity> UserExist(string userName)
+        public async Task<bool> UserExist(string userName)
         {
-            throw new NotImplementedException();
+            if (await GetAsync(u=>u.UserName == userName) == null)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

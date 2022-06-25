@@ -8,4 +8,9 @@
     <ProjectReference Include="..\SaeedPay76.Repo\SaeedPay76.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Api\" />
+    <Folder Include="Site\App\" />
+  </ItemGroup>
+
 </Project>

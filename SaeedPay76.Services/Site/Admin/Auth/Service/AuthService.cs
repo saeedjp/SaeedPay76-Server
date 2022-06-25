@@ -21,9 +21,18 @@ namespace SaeedPay76.Services.Auth.Service
             _db = db;
         }
 
-        public Task<UserEntity> Login(string userName, string passWord, CancellationToken cancellationToken)
+        public async Task<UserEntity> Login(string userName, string passWord, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var user = await _db.userRepository.GetAsync(u => u.UserName == userName);
+            if (user == null)
+            {
+                return null;
+            }
+            if (!(Utilities.VerifyPasswordHash(passWord, user.PasswordHash, user.PasswordSalt)))
+            {
+                return null;
+            }
+            return user;
         }
         public async Task<UserEntity> Register(UserEntity user, string passWord , CancellationToken cancellationToken)
         {

@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace SaeedPay76.Data.Repositories.Interface
 {
-    public interface IUserRepository :IRepository<UserEntity>
+    public interface IUserRepository : IRepository<UserEntity>
     {
-        Task<UserEntity> UserExist(string userName);
+        Task<bool> UserExist(string userName);
 
     }
 }
