@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SaeedPay76.Data.DatabaseContext;
 
 namespace SaeedPay76.Data.Migrations
 {
     [DbContext(typeof(SaeedPayDbContext))]
-    partial class SaeedPayDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220625191536_Change-User-Type")]
+    partial class ChangeUserType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

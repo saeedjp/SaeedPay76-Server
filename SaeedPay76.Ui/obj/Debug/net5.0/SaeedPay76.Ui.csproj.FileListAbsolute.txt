@@ -65,3 +65,5 @@ C:\Users\user\source\repos\SaeedPay76Project\SaeedPay76\SaeedPay76.Ui\obj\Debug\
 C:\Users\user\source\repos\SaeedPay76Project\SaeedPay76\SaeedPay76.Ui\obj\Debug\net5.0\ref\SaeedPay76.Ui.dll
 C:\Users\user\source\repos\SaeedPay76Project\SaeedPay76\SaeedPay76.Ui\obj\Debug\net5.0\SaeedPay76.Ui.pdb
 C:\Users\user\source\repos\SaeedPay76Project\SaeedPay76\SaeedPay76.Ui\obj\Debug\net5.0\SaeedPay76.Ui.genruntimeconfig.cache
+C:\Users\user\source\repos\SaeedPay76Project\SaeedPay76\SaeedPay76.Ui\bin\Debug\net5.0\Humanizer.dll
+C:\Users\user\source\repos\SaeedPay76Project\SaeedPay76\SaeedPay76.Ui\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
