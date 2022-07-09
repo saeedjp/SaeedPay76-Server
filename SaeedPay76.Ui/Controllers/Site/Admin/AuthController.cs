@@ -68,41 +68,49 @@ namespace SaeedPay76.Ui.Controllers.Site.Admin
         [HttpPost("login")]
         public async Task<IActionResult> Login(UserForLoginDto userForLoginDto, CancellationToken cancellationToken)
         {
-            var userFromRepo = await _authService.Login(userForLoginDto.UserName, userForLoginDto.Password, cancellationToken);
-            if (userFromRepo == null)
+            try
             {
-                return Unauthorized(new ReturnEroor()
+                var userFromRepo = await _authService.Login(userForLoginDto.UserName, userForLoginDto.Password, cancellationToken);
+                if (userFromRepo == null)
                 {
-                    Status = false,
-                    Title = "خطا",
-                    Message = "کاربری با این مشخصات وجود ندارد ",
-                    Code = "400"
-                });
-            }
-            var claims = new[]
-            {
+                    return Unauthorized(new ReturnEroor()
+                    {
+                        Status = false,
+                        Title = "خطا",
+                        Message = "کاربری با این مشخصات وجود ندارد ",
+                        Code = "400"
+                    });
+                }
+                var claims = new[]
+                {
                 new Claim(ClaimTypes.NameIdentifier,userFromRepo.Id.ToString()),
                 new Claim(ClaimTypes.Name,userFromRepo.UserName),
             };
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.GetSection("AppSettings:Token").Value));
+                var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.GetSection("AppSettings:Token").Value));
 
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+                var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 
-            var tokenDesc = new SecurityTokenDescriptor
+                var tokenDesc = new SecurityTokenDescriptor
+                {
+                    Subject = new ClaimsIdentity(claims),
+                    Expires = userForLoginDto.IsRemember ? System.DateTime.Now.AddDays(2) : System.DateTime.Now.AddHours(2),
+                    SigningCredentials = creds
+                };
+
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var token = tokenHandler.CreateToken(tokenDesc);
+
+                return Ok(new
+                {
+                    token = tokenHandler.WriteToken(token)
+
+                });
+            }
+            catch (System.Exception)
             {
-                Subject = new ClaimsIdentity(claims),
-                Expires = userForLoginDto.IsRemember ? System.DateTime.Now.AddDays(2) : System.DateTime.Now.AddHours(2),
-                SigningCredentials = creds
-            };
 
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var token = tokenHandler.CreateToken(tokenDesc);
-
-            return Ok(new
-            {
-                token = tokenHandler.WriteToken(token)
-
-            });
+                throw;
+            }
         }
         // PUT api/<AuthController>/5
         [HttpPut("{id}")]
