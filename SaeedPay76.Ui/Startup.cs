@@ -17,6 +17,8 @@ using SaeedPay76.Data.DatabaseContext;
 using SaeedPay76.Data.Infrastructure;
 using SaeedPay76.Services.Auth.Interface;
 using SaeedPay76.Services.Auth.Service;
+using SaeedPay76.Services.Site.Admin.Auth.Interface;
+using SaeedPay76.Services.Site.Admin.Auth.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,6 +45,7 @@ namespace SaeedPay76.Ui
                 .UseSqlServer(connectionString));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IUserService, UserService>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

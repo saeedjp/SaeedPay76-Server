@@ -23,6 +23,7 @@ namespace SaeedPay76.Ui.Helper
                 }); 
             CreateMap<Photo, PhotoForUserDetailDto>();
             CreateMap<BankCard, BankCardsForDetailDto>();
+            CreateMap<UserForUpdateDto, UserEntity>();
         }
     }
 }
