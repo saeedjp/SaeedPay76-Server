@@ -16,6 +16,7 @@ namespace SaeedPay76.Data.Models
         public byte[] PasswordSalt { get; set; }
         public string Gender { get; set; }
         public DateTime? DateOfBirth { get; set; }
+        public DateTime? LastActive { get; set; }
         public string City { get; set; }
 
         public string PhoneNumber { get; set; }

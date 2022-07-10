@@ -10,6 +10,7 @@ namespace SaeedPay76.Data.Models
             CreatedAt = System.DateTime.Now;
         }
         public string BankName { get; set; }
+        public string OwnerName { get; set; }
         public string Shaba { get; set; }
         public string CardNumber { get; set; }
         public string ExpireDateMonth { get; set; }
