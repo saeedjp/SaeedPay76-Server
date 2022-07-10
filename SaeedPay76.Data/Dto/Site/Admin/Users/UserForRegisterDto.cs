@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SaeedPay76.Data.Dto.Site.Admin
+namespace SaeedPay76.Data.Dto.Site.Admin.Users
 {
     public class UserForRegisterDto
     {

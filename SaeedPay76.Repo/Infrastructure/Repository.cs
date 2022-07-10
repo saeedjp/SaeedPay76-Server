@@ -48,10 +48,34 @@ namespace SaeedPay76.Data.Infrastructure
         {
             return await _dbSet.ToListAsync();
         }
-
         public async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> expression)
         {
             return await _dbSet.Where(expression).FirstOrDefaultAsync();
+
+        }
+        public async Task<IEnumerable<TEntity>> GetWithFilterAsync(
+                                            Expression<Func<TEntity, bool>> expression = null,
+                                            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+                                            string includeEntity = "")
+        {
+            IQueryable<TEntity> query = _dbSet;
+
+            if (expression != null)
+            {
+                query = query.Where(expression);
+            }
+            foreach (var include in includeEntity.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                query = query.Include(include);
+            }
+            if (orderBy != null)
+            {
+                return await orderBy(query).ToListAsync();
+            }
+            else
+            {
+                return await query.ToListAsync();
+            }
 
         }
 

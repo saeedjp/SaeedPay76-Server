@@ -15,5 +15,15 @@ namespace SaeedPay76.Common.Helper
             response.Headers.Add("Acces-Control-Expose-Headers", "App-Error");
             response.Headers.Add("Acces-Control-Allow-Origin", "*");
         }
+        public static int  ToAge(this DateTime dateTime)
+        {
+            var age = DateTime.Today.Year - dateTime.Year;
+            if (dateTime.AddYears(age) > DateTime.Today)
+            {
+                age--;
+            }
+
+            return age;
+        }
     }
 }
