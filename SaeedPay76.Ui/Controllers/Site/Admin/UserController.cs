@@ -42,6 +42,11 @@ namespace SaeedPay76.Ui.Controllers.Site.Admin
         [HttpGet("{id}")]
         public async Task<IActionResult> GetUser(string id)
         {
+            //if (User.FindFirst(ClaimTypes.NameIdentifier).Value != id)
+            //{
+            //    return Unauthorized("شما اجازه دسترسی ندارید");
+
+            //}
             var user = await _db.userRepository.GetWithFilterAsync(u => u.Id == id, null, "Photos");
             var userToRetuen = _mapper.Map<UserForDetailedDto>(user.SingleOrDefault());
 
@@ -51,7 +56,7 @@ namespace SaeedPay76.Ui.Controllers.Site.Admin
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateUser(string id, UserForUpdateDto userForUpdateDto, CancellationToken cancellationToken)
         {
-            if (id != User.FindFirst(ClaimTypes.NameIdentifier).Value))
+            if (id != User.FindFirst(ClaimTypes.NameIdentifier).Value)
             {
                 return Unauthorized("شما اجازه ویزایش ندارید");
             }

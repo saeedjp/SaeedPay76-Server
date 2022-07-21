@@ -2,6 +2,8 @@
 using SaeedPay76.Data.DatabaseContext;
 using SaeedPay76.Data.Repositories.Interface;
 using SaeedPay76.Data.Repositories.Repo;
+using SaeedPay76.Infrastructure.Repositories.Interface;
+using SaeedPay76.Infrastructure.Repositories.Repo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +32,20 @@ namespace SaeedPay76.Data.Infrastructure
                     userRepository = new UserRepository(_dbContext);
                 }
                 return userRepository;
+            }
+        }
+
+        public IPhotoRepository photoRepository;
+
+        IPhotoRepository IUnitOfWork.photoRepository
+        {
+            get
+            {
+                if (photoRepository == null)
+                {
+                    photoRepository = new PhotoRepository(_dbContext);
+                }
+                return photoRepository;
             }
         }
 

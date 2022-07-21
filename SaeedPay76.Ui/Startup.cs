@@ -40,6 +40,9 @@ namespace SaeedPay76.Ui
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
+
             var connectionString = Configuration.GetConnectionString("SaeedPay");
             services.AddDbContextPool<SaeedPayDbContext>(options => options
                 .UseSqlServer(connectionString));

@@ -53,7 +53,6 @@ C:\Users\user\source\repos\SaeedPay76Project\SaeedPay76\SaeedPay76.Ui\obj\Debug\
 C:\Users\user\source\repos\SaeedPay76Project\SaeedPay76\SaeedPay76.Ui\obj\Debug\net5.0\SaeedPay76.Ui.AssemblyInfoInputs.cache
 C:\Users\user\source\repos\SaeedPay76Project\SaeedPay76\SaeedPay76.Ui\obj\Debug\net5.0\SaeedPay76.Ui.AssemblyInfo.cs
 C:\Users\user\source\repos\SaeedPay76Project\SaeedPay76\SaeedPay76.Ui\obj\Debug\net5.0\SaeedPay76.Ui.csproj.CoreCompileInputs.cache
-C:\Users\user\source\repos\SaeedPay76Project\SaeedPay76\SaeedPay76.Ui\obj\Debug\net5.0\SaeedPay76.Ui.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\user\source\repos\SaeedPay76Project\SaeedPay76\SaeedPay76.Ui\obj\Debug\net5.0\SaeedPay76.Ui.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\user\source\repos\SaeedPay76Project\SaeedPay76\SaeedPay76.Ui\obj\Debug\net5.0\staticwebassets\SaeedPay76.Ui.StaticWebAssets.Manifest.cache
 C:\Users\user\source\repos\SaeedPay76Project\SaeedPay76\SaeedPay76.Ui\obj\Debug\net5.0\staticwebassets\SaeedPay76.Ui.StaticWebAssets.xml
@@ -73,3 +72,7 @@ C:\Users\user\source\repos\SaeedPay76Project\SaeedPay76\SaeedPay76.Ui\bin\Debug\
 C:\Users\user\source\repos\SaeedPay76Project\SaeedPay76\SaeedPay76.Ui\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
 C:\Users\user\source\repos\SaeedPay76Project\SaeedPay76\SaeedPay76.Ui\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
 C:\Users\user\source\repos\SaeedPay76Project\SaeedPay76\SaeedPay76.Ui\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\user\source\repos\SaeedPay76Project\SaeedPay76\SaeedPay76.Ui\bin\Debug\net5.0\CloudinaryDotNet.dll
+C:\Users\user\source\repos\SaeedPay76Project\SaeedPay76\SaeedPay76.Ui\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\user\source\repos\SaeedPay76Project\SaeedPay76\SaeedPay76.Ui\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\user\source\repos\SaeedPay76Project\SaeedPay76\SaeedPay76.Ui\bin\Debug\net5.0\System.IO.Pipelines.dll

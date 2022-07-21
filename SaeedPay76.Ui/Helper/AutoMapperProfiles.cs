@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using SaeedPay76.Common.Helper;
 using SaeedPay76.Data.Dto.Site.Admin.Bank;
 using SaeedPay76.Data.Dto.Site.Admin.Phpto;
 using SaeedPay76.Data.Dto.Site.Admin.Users;
@@ -20,8 +21,11 @@ namespace SaeedPay76.Ui.Helper
                 .ForMember(dest => dest.Age, opt =>
                 {
                     //opt.MapFrom(src => src.DateOfBirth.ToAge();
-                }); 
+                    opt.MapFrom(src => src.DateOfBirth.Value.ToAge());
+                });
             CreateMap<Photo, PhotoForUserDetailDto>();
+            CreateMap<PhotoForProfileDto, Photo>();
+            CreateMap<Photo, PhotoForReturnProfileDto>();
             CreateMap<BankCard, BankCardsForDetailDto>();
             CreateMap<UserForUpdateDto, UserEntity>();
         }
